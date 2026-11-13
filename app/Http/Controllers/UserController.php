@@ -11,12 +11,12 @@ class UserController extends Controller
         $usersWDB = $this->loadUsersWDB();
 
         $usersFromDB = DB::table('users')
-        ->select('name', 'address', 'email')
+        ->select('id','name', 'address', 'email','nif')
         ->get();
-        
-        dd($usersFromDB);
 
-        return view('users.allusers', compact('usersWDB'));
+        //dd($usersFromDB);
+
+        return view('users.allusers', compact('usersWDB','usersFromDB'));
     }
 
     public function addUsers () {
