@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,11 +11,10 @@ class UserController extends Controller
     public function allUsers() {
         $usersWDB = $this->loadUsersWDB();
 
-        $usersFromDB = DB::table('users')
-        ->select('id','name', 'address', 'email','nif')
+        $usersFromDB = User::select('id','name', 'address', 'email','nif')
         ->get();
+        //$usersFromDB = User::all();
 
-        //dd($usersFromDB);
 
         return view('users.allusers', compact('usersWDB','usersFromDB'));
     }
