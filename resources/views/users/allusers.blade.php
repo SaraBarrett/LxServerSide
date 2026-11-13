@@ -19,6 +19,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Address</th>
                 <th scope="col">Nif</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->address}}</td>
                     <td>{{$user->nif}}</td>
+                    <td><a href="{{route('users.delete', $user->id )}}" class="btn btn-danger">Apagar</a></td>
                 </tr>
             @endforeach
 

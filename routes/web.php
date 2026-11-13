@@ -20,8 +20,15 @@ Route::get('/users', [UserController::class, 'allUsers'])->name('users.all');
 
 Route::get('/add-users',[UserController::class, 'addUsers'] )->name('users.add');
 
+//rota de apagar users
+
+Route::get('/delete-users/{id}',[UserController::class, 'deleteUsers'] )->name('users.delete');
+
+
 //rotas de tarefas
 Route::get('/tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
+
+
 
 
 //rota fallback

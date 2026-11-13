@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +26,16 @@ class UserController extends Controller
         return view('users.addusers', compact('usersWDB'));
     }
 
+
+    public function deleteUsers(int $id){
+
+        Task::where('user_id',$id)->delete();
+
+        User::where('id', $id)->delete();
+
+        return back();
+
+    }
 
     private function loadUsersWDB(){
         $usersWithoutDB = [
