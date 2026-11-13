@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Utilizadores</title>
-</head>
-<body>
+@extends('layouts.fo')
 
+@section('content')
     <h1>Aqui vamos carregar todos os utilizadores</h1>
 
-</body>
-</html>
+    <h6>Users sem estarem carregados da base de dados</h6>
+    <ul>
+        @foreach ($usersWDB as $user)
+        <li>{{$user['name']}}-->{{$user['email']}}</li>
+        @endforeach
+    </ul>
+@endsection

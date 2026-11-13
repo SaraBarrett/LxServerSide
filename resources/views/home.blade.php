@@ -1,9 +1,27 @@
 @extends('layouts.fo')
 
 @section('content')
+    <img src="{{ asset('images/photo-1623172959921-630212f71058.avif') }}" alt="">
 
+    {{-- @if (isset($courseName))
+        <h5>Olá {{ $courseName }}</h5>
+    @else
+        <h5>Olá user</h5>
+    @endif --}}
 
-    <img src="{{asset('images/photo-1623172959921-630212f71058.avif')}}" alt="">
+    <h5>Olá {{ isset($courseName) ? $courseName : 'user' }}</h5>
+    <h6>O contacto é o {{$contactInfo['name']}} - {{$contactInfo['contact']}}</h6>
+    <h5>{{$cesaeInfo['name']}},{{$cesaeInfo['address']}} -> {{$cesaeInfo['email']}}  </h5>
+
+    <h5>Alunos da turma</h5>
+    <ul>
+        @if (isset($students))
+            @foreach ($students as $student)
+                <li>{{ $student }}</li>
+            @endforeach
+        @endif
+    </ul>
+
 
     <h5>Funcionalidades da nossa app</h5>
     <ul>
@@ -11,5 +29,4 @@
         <li><a href="{{ route('users.all') }}">Utilizadores</a></li>
         <li><a href="{{ route('users.add') }}">Adicionar Utilizadores</a></li>
     </ul>
-
 @endsection

@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.fo')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adicionar user</title>
-</head>
+@section('content')
 
-<body>
     <h1>Aqui vai nascer um form de adicionar users</h1>
 
 
-
-</body>
-
-</html>
+@endsection
