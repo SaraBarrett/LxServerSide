@@ -49,6 +49,24 @@ class UserController extends Controller
     }
 
 
+    public function updateUser(Request $request){
+
+        $request->validate([
+            'name' =>'required|max:50'
+        ]);
+
+        User::where('id', $request->id)->update([
+            'name'=> $request->name,
+            'address'=> $request->address,
+            'nif'=> $request->nif,
+        ]);
+
+        return redirect()->route('users.all')->with('message', 'user actualizado com sucesso!');
+
+
+    }
+
+
     public function storeUser(Request $request){
         //validar os dados no servidor
         $request->validate([

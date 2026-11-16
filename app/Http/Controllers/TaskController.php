@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,9 +39,34 @@ class TaskController extends Controller
     }
 
     public function addTasks(){
-        return view('tasks.add_task');
+        $users = $this->getAllUsers();
+
+        return view('tasks.add_task', compact('users'));
     }
 
+    public function storeTasks(Request $request){
+        $request->validate([
+            'name' => 'max:50|string|required',
+            'user_id' =>'required|exists:users,id'
+        ]);
+        
+
+        Task::insert([
+            'name' => $request->name,
+            'description' => $request->description,
+            'user_id' => $request->user_id
+        ]);
+
+        return redirect()->route('tasks.all')->with('message','Tarefa adicionada com sucesso!');
+
+
+    }
+
+    private function getAllUsers(){
+        $users = User::select('id','name')->get();
+
+        return $users;
+    }
 
     protected function getAllTasks(){
         $tasks= Task::join('users', 'tasks.user_id','=' ,'users.id')

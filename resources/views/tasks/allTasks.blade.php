@@ -1,6 +1,12 @@
 @extends('layouts.fo')
 
 @section('content')
+
+@if (session('message'))
+<div class="alert alert-success">
+    {{session('message')}}
+</div>
+@endif
     <a class="btn btn-warning" href="{{ route('tasks.add') }}">Adicionar tarefa</a>
     <h6>Tarefas da base de dados</h6>
     <table class="table">

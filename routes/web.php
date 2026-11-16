@@ -32,6 +32,11 @@ Route::get('/edit-users/{id}',[UserController::class, 'editUsers'] )->name('user
 Route::post('/store-users', [UserController::class, 'storeUser'])->name('users.store');
 
 
+//rota de actualizar users
+Route::put('/update-user', [UserController::class, 'updateUser'])->name('users.update');
+
+
+
 //rotas de tarefas
 Route::get('/tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
 Route::get('/delete-tasks/{id}',[TaskController::class, 'deleteTasks'] )->name('tasks.delete');
@@ -39,7 +44,10 @@ Route::get('/edit-tasks/{id}',[TaskController::class, 'editTasks'] )->name('task
 
 Route::get('/add-task',[TaskController::class, 'addTasks'] )->name('tasks.add');
 
-// Route::post('/store-/add-task', [TaskController::class, 'storeTasks'])->name('tasks.store');
+Route::post('/store-add-task', [TaskController::class, 'storeTasks'])->name('tasks.store');
+
+
+
 
 
 //rota fallback
