@@ -28,6 +28,10 @@ Route::get('/delete-users/{id}',[UserController::class, 'deleteUsers'] )->name('
 Route::get('/edit-users/{id}',[UserController::class, 'editUsers'] )->name('users.edit');
 
 
+//rota de registar users
+Route::post('/store-users', [UserController::class, 'storeUser'])->name('users.store');
+
+
 //rotas de tarefas
 Route::get('/tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
 Route::get('/delete-tasks/{id}',[TaskController::class, 'deleteTasks'] )->name('tasks.delete');

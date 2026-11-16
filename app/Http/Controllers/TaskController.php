@@ -31,6 +31,7 @@ class TaskController extends Controller
 
 
     public function editTasks(int $id){
+        
         $taskInfo = Task::join('users', 'tasks.user_id','=' ,'users.id')->where('tasks.id', $id)->select('tasks.id', 'tasks.description','tasks.due_at', 'tasks.status', 'tasks.name','users.name as user_name')->first();
 
         return view('tasks.edittask', compact('taskInfo'));

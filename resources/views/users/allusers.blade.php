@@ -10,6 +10,13 @@
         @endforeach
     </ul>
 
+
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <h6>Utilizadores da base de dados</h6>
     <table class="table">
         <thead>
