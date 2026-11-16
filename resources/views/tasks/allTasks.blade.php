@@ -1,6 +1,7 @@
 @extends('layouts.fo')
 
 @section('content')
+    <a class="btn btn-warning" href="{{ route('tasks.add') }}">Adicionar tarefa</a>
     <h6>Tarefas da base de dados</h6>
     <table class="table">
         <thead>

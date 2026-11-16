@@ -37,6 +37,10 @@ Route::get('/tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
 Route::get('/delete-tasks/{id}',[TaskController::class, 'deleteTasks'] )->name('tasks.delete');
 Route::get('/edit-tasks/{id}',[TaskController::class, 'editTasks'] )->name('tasks.edit');
 
+Route::get('/add-task',[TaskController::class, 'addTasks'] )->name('tasks.add');
+
+// Route::post('/store-/add-task', [TaskController::class, 'storeTasks'])->name('tasks.store');
+
 
 //rota fallback
 Route::fallback(function(){
