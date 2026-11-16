@@ -29,11 +29,21 @@ class UserController extends Controller
 
     public function deleteUsers(int $id){
 
+        //posso fazer um pedaço de código que por exemplo atribui as tarefas do user a outro user
+
         Task::where('user_id',$id)->delete();
 
         User::where('id', $id)->delete();
 
         return back();
+
+    }
+
+
+    public function editUsers(int $id){
+        $userInfo = User::where('id', $id)->select('name','email', 'id', 'address','nif')->first();
+
+        return view('users.edituser', compact('userInfo'));
 
     }
 

@@ -24,11 +24,14 @@ Route::get('/add-users',[UserController::class, 'addUsers'] )->name('users.add')
 
 Route::get('/delete-users/{id}',[UserController::class, 'deleteUsers'] )->name('users.delete');
 
+//rota para ver /editar users
+Route::get('/edit-users/{id}',[UserController::class, 'editUsers'] )->name('users.edit');
+
 
 //rotas de tarefas
 Route::get('/tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
-
-
+Route::get('/delete-tasks/{id}',[TaskController::class, 'deleteTasks'] )->name('tasks.delete');
+Route::get('/edit-tasks/{id}',[TaskController::class, 'editTasks'] )->name('tasks.edit');
 
 
 //rota fallback
