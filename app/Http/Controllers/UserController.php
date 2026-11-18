@@ -11,10 +11,22 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function allUsers() {
+
+
         $usersWDB = $this->loadUsersWDB();
 
-        $usersFromDB = User::select('id','name', 'address', 'email','nif')
-        ->get();
+        $searchPar = request()->query('search')?request()->query('search'):null;
+
+
+        $query = User::select('id','name', 'address', 'email','nif');
+
+        if($searchPar){
+            $query->where('name','LIKE' , "%{$searchPar}%")
+            ->orWhere('email','LIKE' , "%{$searchPar}%");
+        }
+
+
+        $usersFromDB=$query->get();
         //$usersFromDB = User::all();
 
 

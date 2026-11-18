@@ -13,7 +13,7 @@ Route::get('/hello/{message}', function ($message) {
 });
 
 //rota de homepage
-Route::get('/homepage', [UtilController::class, 'loadHomepage'])->name('home');
+Route::get('/home', [UtilController::class, 'loadHomepage'])->name('home');
 
 //rotas de users
 Route::get('/users', [UserController::class, 'allUsers'])->name('users.all');
