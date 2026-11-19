@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UtilController;
@@ -25,7 +26,7 @@ Route::get('/add-users',[UserController::class, 'addUsers'] )->name('users.add')
 Route::get('/delete-users/{id}',[UserController::class, 'deleteUsers'] )->name('users.delete');
 
 //rota para ver /editar users
-Route::get('/edit-users/{id}',[UserController::class, 'editUsers'] )->name('users.edit');
+Route::get('/edit-users/{id}',[UserController::class, 'editUsers'] )->name('users.edit')->middleware('auth');
 
 
 //rota de registar users
@@ -35,6 +36,8 @@ Route::post('/store-users', [UserController::class, 'storeUser'])->name('users.s
 //rota de actualizar users
 Route::put('/update-user', [UserController::class, 'updateUser'])->name('users.update');
 
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 
 //rotas de tarefas
