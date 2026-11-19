@@ -1,7 +1,7 @@
 @extends('layouts.fo')
 
 @section('content')
-    <h1>Adicionar users</h1>
+    <h1>Login</h1>
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -24,5 +24,6 @@
         @enderror
 
         <button type="submit" class="btn btn-primary">Login</button>
+        <p>esqueceu-se da pass? clique <a href="{{route('password.request')}}">aqui</a> </p>
     </form>
 @endsection
