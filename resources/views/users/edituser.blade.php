@@ -3,11 +3,11 @@
 @section('content')
     <h6>Detalhes do user {{ $userInfo->name }}</h6>
 
-    <form method="POST" action="{{ route('users.update') }}">
+    <form method="POST" action="{{ route('users.update') }}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
 
-        <input type="hidden" name="id" value="{{$userInfo->id}}">
+        <input type="hidden" name="id" value="{{ $userInfo->id }}">
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nome</label>
@@ -34,10 +34,14 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nif</label>
-            <input value="{{ $userInfo->nif }}" type="text" name="nif" class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input value="{{ $userInfo->nif }}" type="text" name="nif" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
         </div>
+        <div class="mb-3">
+            <label for="">Foto</label>
+            <input type="file" name="photo" accept="image/*">
 
+        </div>
 
 
 
